@@ -2,144 +2,21 @@
 <html>
 <head>
   <title>Menu - Smoky Curve</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #0a0a0a;
-      color: white;
-    }
-
-    h2 {
-      padding-left: 20px;
-    }
-
-    /* SEARCH */
-    #search {
-      width: 90%;
-      margin: 20px;
-      padding: 15px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-    }
-
-    /* MENU */
-    .menu-category {
-      margin: 15px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.05);
-    }
-
-    .menu-title {
-      padding: 15px;
-      background: #ff4d4d;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .menu-items {
-      padding: 10px;
-    }
-
-    .item {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      align-items: center;
-    }
-
-    .item h4 {
-      margin: 0;
-    }
-
-    .item p {
-      margin: 3px 0;
-      font-size: 13px;
-      opacity: 0.7;
-    }
-
-    button {
-      background: #ff4d4d;
-      border: none;
-      padding: 6px 12px;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    /* CART */
-    #cart-bar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #ff4d4d;
-      padding: 15px;
-      text-align: center;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* CART POPUP */
-    #cart-popup {
-      position: fixed;
-      bottom: 60px;
-      right: 20px;
-      width: 300px;
-      max-height: 400px;
-      overflow-y: auto;
-      background: #1a1a1a;
-      border-radius: 12px;
-      padding: 15px;
-      display: none;
-      z-index: 1000;
-    }
-
-    #cart-popup h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      text-align: center;
-      color: #ff4d4d;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 5px;
-    }
-
-    .cart-item span {
-      margin-left: 5px;
-    }
-
-    .remove-btn {
-      background: transparent;
-      color: #ff4d4d;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
+    /* <-- Paste all the CSS here (from STEP 2) --> */
   </style>
 </head>
-
 <body>
 
 <h2>🍽️ Our Menu</h2>
-
 <input type="text" id="search" placeholder="🔍 Search food...">
 
-<!-- MENU CATEGORIES (Soups, Starters, Rice, etc.) -->
+<!-- Menu Categories -->
 <div class="menu-category">
   <div class="menu-title">🥣 Soups</div>
   <div class="menu-items">
-
     <div class="item">
       <div>
         <h4 class="food-name">Clear Chicken Soup</h4>
@@ -150,116 +27,17 @@
         <button onclick="addToCart('Clear Chicken Soup',229)">Add</button>
       </div>
     </div>
-
-    <div class="item">
-      <div>
-        <h4 class="food-name">Cream Of Mushroom</h4>
-        <p>Rich creamy soup</p>
-      </div>
-      <div>
-        ₹199 <br>
-        <button onclick="addToCart('Cream Of Mushroom',199)">Add</button>
-      </div>
-    </div>
-
-    <div class="item">
-      <div>
-        <h4 class="food-name">Hot & Sour Veg</h4>
-        <p>Spicy tangy soup</p>
-      </div>
-      <div>
-        ₹189 <br>
-        <button onclick="addToCart('Hot & Sour Veg',189)">Add</button>
-      </div>
-    </div>
-
+    <!-- Add more items here -->
   </div>
 </div>
 
-<!-- Add other categories here similarly (Starters, Rice, Noodles, Biryani) -->
+<!-- Add other categories here -->
 
 <!-- CART BAR -->
 <div id="cart-bar">
   🛒 <span id="cart-count">0</span> items | ₹<span id="cart-total">0</span>
 </div>
 
-<!-- CART POPUP -->
-<div id="cart-popup">
-  <h3>Your Cart</h3>
-  <div id="cart-items"></div>
-  <div style="text-align:center; margin-top:10px;">
-    <strong>Total: ₹<span id="popup-total">0</span></strong>
-  </div>
-</div>
-
-<script>
-let cartCount = 0;
-let total = 0;
-let cart = {};
-
-// ADD TO CART FUNCTION
-function addToCart(name, price) {
-  cartCount++;
-  total += price;
-
-  if (cart[name]) {
-    cart[name].qty++;
-  } else {
-    cart[name] = { price: price, qty: 1 };
-  }
-
-  updateCart();
-}
-
-// UPDATE CART DISPLAY
-function updateCart() {
-  document.getElementById("cart-count").innerText = cartCount;
-  document.getElementById("cart-total").innerText = total;
-
-  const cartItemsDiv = document.getElementById("cart-items");
-  cartItemsDiv.innerHTML = "";
-
-  for (let key in cart) {
-    let item = cart[key];
-    let div = document.createElement("div");
-    div.className = "cart-item";
-    div.innerHTML = `
-      <span>${key} x${item.qty}</span>
-      <span>₹${item.price * item.qty} <button class="remove-btn" onclick="removeFromCart('${key}')">x</button></span>
-    `;
-    cartItemsDiv.appendChild(div);
-  }
-
-  document.getElementById("popup-total").innerText = total;
-}
-
-// REMOVE ITEM FROM CART
-function removeFromCart(name) {
-  if (cart[name]) {
-    total -= cart[name].price * cart[name].qty;
-    cartCount -= cart[name].qty;
-    delete cart[name];
-    updateCart();
-  }
-}
-
-// TOGGLE CART POPUP
-document.getElementById("cart-bar").addEventListener("click", () => {
-  let popup = document.getElementById("cart-popup");
-  popup.style.display = popup.style.display === "none" ? "block" : "none";
-});
-
-// SEARCH FUNCTION
-document.getElementById("search").addEventListener("keyup", function() {
-  let value = this.value.toLowerCase();
-  let items = document.querySelectorAll(".item");
-
-  items.forEach(item => {
-    let name = item.querySelector(".food-name").innerText.toLowerCase();
-    item.style.display = name.includes(value) ? "flex" : "none";
-  });
-});
-</script>
-
+<script src="script.js"></script> <!-- link your JS file -->
 </body>
 </html>
