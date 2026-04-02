@@ -5,18 +5,82 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    body { margin: 0; font-family: 'Poppins', sans-serif; background: #0a0a0a; color: white; }
-    h2 { padding-left: 20px; }
-    #search { width: 90%; margin: 20px; padding: 15px; border-radius: 10px; border: none; font-size: 16px; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
 
-    .menu-category { margin: 15px; border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.05); }
-    .menu-title { padding: 15px; background: #ff4d4d; cursor: pointer; font-weight: bold; }
-    .menu-items { padding: 10px; }
-    .item { display: flex; justify-content: space-between; padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .item h4 { margin: 0; }
-    .item p { margin: 3px 0; font-size: 13px; opacity: 0.7; }
-    button { background: #ff4d4d; border: none; padding: 6px 12px; color: white; border-radius: 6px; cursor: pointer; }
-    #cart-bar { position: fixed; bottom: 0; width: 100%; background: #ff4d4d; padding: 15px; text-align: center; font-weight: bold; }
+    h2 {
+      padding-left: 20px;
+    }
+
+    /* SEARCH */
+    #search {
+      width: 90%;
+      margin: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+
+    /* MENU */
+    .menu-category {
+      margin: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .menu-title {
+      padding: 15px;
+      background: #ff4d4d;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .menu-items {
+      padding: 10px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .item h4 {
+      margin: 0;
+    }
+
+    .item p {
+      margin: 3px 0;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    button {
+      background: #ff4d4d;
+      border: none;
+      padding: 6px 12px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* CART */
+    #cart-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #ff4d4d;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -25,65 +89,15 @@
 <h2>🍽️ Our Menu</h2>
 <input type="text" id="search" placeholder="🔍 Search food...">
 
+<!-- MENU WILL BE DYNAMICALLY LOADED HERE -->
 <div id="menu-container"></div>
 
+<!-- CART BAR -->
 <div id="cart-bar">
   🛒 <span id="cart-count">0</span> items | ₹<span id="cart-total">0</span>
 </div>
 
-<script>
-let cartCount = 0;
-let total = 0;
-
-// Full menu list
-const menuItems = [
-  {name:"Clear Chicken Soup", price:229},
-  {name:"Cream Of Mushroom", price:199},
-  {name:"Hot & Sour Veg", price:189},
-  {name:"Chicken 65", price:359},
-  {name:"Paneer Tikka", price:329},
-  {name:"Tandoori Fish", price:489},
-  {name:"Chicken Fried Rice", price:279},
-  {name:"Veg Fried Rice", price:199},
-  {name:"Prawn Fried Rice", price:289},
-  {name:"Chicken Noodles", price:289},
-  {name:"Veg Noodles", price:219},
-  {name:"Prawn Noodles", price:299},
-  {name:"Chicken Biryani", price:229},
-  {name:"Chicken 65 Biryani", price:269},
-  {name:"Egg Biryani", price:189}
-];
-
-// Populate menu
-const menuContainer = document.getElementById("menu-container");
-menuItems.forEach(item => {
-  const div = document.createElement("div");
-  div.className = "item";
-  div.innerHTML = `
-    <h4 class="food-name">${item.name}</h4>
-    <div>₹${item.price} <br>
-    <button onclick="addToCart('${item.name}',${item.price})">Add</button></div>
-  `;
-  menuContainer.appendChild(div);
-});
-
-// Add to Cart
-function addToCart(name, price) {
-  cartCount++;
-  total += price;
-  document.getElementById("cart-count").innerText = cartCount;
-  document.getElementById("cart-total").innerText = total;
-}
-
-// Search functionality
-document.getElementById("search").addEventListener("keyup", function() {
-  let value = this.value.toLowerCase();
-  document.querySelectorAll(".item").forEach(item => {
-    let name = item.querySelector(".food-name").innerText.toLowerCase();
-    item.style.display = name.includes(value) ? "flex" : "none";
-  });
-});
-</script>
-
+<!-- LINK TO SCRIPT.JS -->
+<script src="script.js"></script>
 </body>
 </html>
