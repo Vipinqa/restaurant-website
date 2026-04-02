@@ -97,6 +97,9 @@
       overflow: hidden;
       backdrop-filter: blur(10px);
       transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card:hover {
@@ -124,6 +127,16 @@
       opacity: 0.7;
     }
 
+    button.add-cart {
+      background: #ff4d4d;
+      border: none;
+      padding: 8px 15px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
     /* STICKY ORDER BAR */
     .order-bar {
       position: fixed;
@@ -133,6 +146,7 @@
       justify-content: space-around;
       background: black;
       padding: 10px;
+      z-index: 999;
     }
 
     .order-btn {
@@ -143,10 +157,31 @@
       background: #ff4d4d;
     }
 
+    #cart-bar {
+      position: fixed;
+      bottom: 60px;
+      right: 20px;
+      background: #ff4d4d;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       background: black;
+    }
+
+    /* SEARCH */
+    #search {
+      width: 90%;
+      margin: 20px auto;
+      display: block;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -170,6 +205,9 @@
   <a href="#menu" class="btn" data-aos="zoom-in">Explore Menu</a>
 </div>
 
+<!-- SEARCH -->
+<input type="text" id="search" placeholder="🔍 Search food...">
+
 <!-- MENU -->
 <section id="menu">
   <h2>🔥 Popular Dishes</h2>
@@ -177,29 +215,32 @@
   <div class="grid">
 
     <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/unnamed (3).webp>
+      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Chicken_Shawarma.webp" alt="Chicken Shawarma">
       <div class="card-content">
         <h3>Chicken Shawarma</h3>
         <p class="price">₹120</p>
         <p class="rating">⭐ 4.5 (120 reviews)</p>
+        <button class="add-cart" onclick="addToCart('Chicken Shawarma',120)">Add to Cart</button>
       </div>
     </div>
 
     <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/Fried Rice.webp">
+      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Fried%20Rice.webp" alt="Fried Rice">
       <div class="card-content">
         <h3>Fried Rice</h3>
         <p class="price">₹150</p>
         <p class="rating">⭐ 4.6</p>
+        <button class="add-cart" onclick="addToCart('Fried Rice',150)">Add to Cart</button>
       </div>
     </div>
 
     <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/Tandoori Chicken.webp">
+      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Tandoori%20Chicken.webp" alt="Tandoori Chicken">
       <div class="card-content">
         <h3>Tandoori Chicken</h3>
         <p class="price">₹220</p>
         <p class="rating">⭐ 4.8</p>
+        <button class="add-cart" onclick="addToCart('Tandoori Chicken',220)">Add to Cart</button>
       </div>
     </div>
 
@@ -233,6 +274,11 @@
   <a href="https://wa.me/918838087588" class="order-btn">💬 WhatsApp</a>
 </div>
 
+<!-- CART BAR -->
+<div id="cart-bar">
+  🛒 <span id="cart-count">0</span> items | ₹<span id="cart-total">0</span>
+</div>
+
 <footer>
   © 2026 Smoky Curve Restaurant
 </footer>
@@ -242,6 +288,30 @@
 <script>
   AOS.init();
 </script>
-<script src="script.js"></script>
+
+<!-- CART & SEARCH SCRIPT -->
+<script>
+let cartCount = 0;
+let total = 0;
+
+function addToCart(name, price) {
+  cartCount++;
+  total += price;
+
+  document.getElementById("cart-count").innerText = cartCount;
+  document.getElementById("cart-total").innerText = total;
+}
+
+/* SEARCH FUNCTION */
+document.getElementById("search").addEventListener("keyup", function() {
+  let value = this.value.toLowerCase();
+  let items = document.querySelectorAll(".card");
+
+  items.forEach(item => {
+    let name = item.querySelector("h3").innerText.toLowerCase();
+    item.style.display = name.includes(value) ? "block" : "none";
+  });
+});
+</script>
 </body>
 </html>
