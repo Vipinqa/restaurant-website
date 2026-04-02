@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Smoky Curve Restaurant</title>
 
   <!-- GOOGLE FONT -->
@@ -44,12 +46,13 @@
     .hero {
       height: 100vh;
       background: linear-gradient(to bottom, rgba(0,0,0,0.5), black),
-      url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5');
+                  url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5');
       background-size: cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
     }
 
     .hero h1 {
@@ -150,98 +153,96 @@
     }
   </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-  <div><b>Smoky Curve 🔥</b></div>
-  <div>
-    <a href="#">Home</a>
-    <a href="#menu">Menu</a>
-    <a href="#reviews">Reviews</a>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div><b>Smoky Curve 🔥</b></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#reviews">Reviews</a>
+    </div>
   </div>
-</div>
 
-<!-- HERO -->
-<div class="hero">
-  <h1 data-aos="fade-up">Smoky Curve 🍽️</h1>
-  <p data-aos="fade-up">Taste That You Will Never Forget</p>
-  <a href="#menu" class="btn" data-aos="zoom-in">Explore Menu</a>
-</div>
-
-<!-- MENU -->
-<section id="menu">
-  <h2>🔥 Popular Dishes</h2>
-
-  <div class="grid">
-
-    <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/unnamed (3).webp>
-      <div class="card-content">
-        <h3>Chicken Shawarma</h3>
-        <p class="price">₹120</p>
-        <p class="rating">⭐ 4.5 (120 reviews)</p>
-      </div>
-    </div>
-
-    <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/Fried Rice.webp">
-      <div class="card-content">
-        <h3>Fried Rice</h3>
-        <p class="price">₹150</p>
-        <p class="rating">⭐ 4.6</p>
-      </div>
-    </div>
-
-    <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/Tandoori Chicken.webp">
-      <div class="card-content">
-        <h3>Tandoori Chicken</h3>
-        <p class="price">₹220</p>
-        <p class="rating">⭐ 4.8</p>
-      </div>
-    </div>
-
+  <!-- HERO -->
+  <div class="hero">
+    <h1 data-aos="fade-up">Smoky Curve 🍽️</h1>
+    <p data-aos="fade-up">Taste That You Will Never Forget</p>
+    <a href="#menu" class="btn" data-aos="zoom-in">Explore Menu</a>
   </div>
-</section>
 
-<!-- REVIEWS -->
-<section id="reviews">
-  <h2>⭐ Customer Reviews</h2>
+  <!-- MENU -->
+  <section id="menu">
+    <h2>🔥 Popular Dishes</h2>
+    <div class="grid">
+      <div class="card" data-aos="fade-up">
+        <img src="smoky-curve-images/Chicken_Shawarma.webp" alt="Chicken Shawarma">
+        <div class="card-content">
+          <h3>Chicken Shawarma</h3>
+          <p class="price">₹120</p>
+          <p class="rating">⭐ 4.5 (120 reviews)</p>
+        </div>
+      </div>
 
-  <p data-aos="fade-right">"Amazing food and fast service!"</p>
-  <p data-aos="fade-right">"Best shawarma in Chennai!"</p>
-  <p data-aos="fade-right">"Affordable and tasty 😍"</p>
-</section>
+      <div class="card" data-aos="fade-up">
+        <img src="smoky-curve-images/Fried Rice.webp" alt="Fried Rice">
+        <div class="card-content">
+          <h3>Fried Rice</h3>
+          <p class="price">₹150</p>
+          <p class="rating">⭐ 4.6</p>
+        </div>
+      </div>
 
-<!-- CONTACT -->
-<section>
-  <h2>📍 Visit Us</h2>
-  <p>18, Paper Mills Road, Perambur</p>
-  <p>📞 6365267431</p>
+      <div class="card" data-aos="fade-up">
+        <img src="smoky-curve-images/Tandoori Chicken.webp" alt="Tandoori Chicken">
+        <div class="card-content">
+          <h3>Tandoori Chicken</h3>
+          <p class="price">₹220</p>
+          <p class="rating">⭐ 4.8</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <iframe 
-    src="https://maps.google.com/maps?q=perambur&t=&z=15&ie=UTF8&iwloc=&output=embed"
-    width="100%" height="250" style="border-radius:10px;">
-  </iframe>
-</section>
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <h2>⭐ Customer Reviews</h2>
+    <p data-aos="fade-right">"Amazing food and fast service!"</p>
+    <p data-aos="fade-right">"Best shawarma in Chennai!"</p>
+    <p data-aos="fade-right">"Affordable and tasty 😍"</p>
+  </section>
 
-<!-- ORDER BAR -->
-<div class="order-bar">
-  <a href="tel:8838087588" class="order-btn">📞 Call Now</a>
-  <a href="https://wa.me/918838087588" class="order-btn">💬 WhatsApp</a>
-</div>
+  <!-- CONTACT -->
+  <section>
+    <h2>📍 Visit Us</h2>
+    <p>18, Paper Mills Road, Perambur</p>
+    <p>📞 6365267431</p>
 
-<footer>
-  © 2026 Smoky Curve Restaurant
-</footer>
+    <iframe
+      src="https://maps.google.com/maps?q=perambur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      width="100%" height="250" style="border-radius:10px;">
+    </iframe>
+  </section>
 
-<!-- AOS SCRIPT -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-<script src="script.js"></script>
+  <!-- ORDER BAR -->
+  <div class="order-bar">
+    <a href="tel:8838087588" class="order-btn">📞 Call Now</a>
+    <a href="https://wa.me/918838087588" class="order-btn">💬 WhatsApp</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Smoky Curve Restaurant
+  </footer>
+
+  <!-- AOS SCRIPT -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- CUSTOM SCRIPT -->
+  <script src="script.js"></script>
 </body>
 </html>
