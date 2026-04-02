@@ -50,7 +50,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
     }
 
     .hero h1 { font-size: 60px; }
@@ -72,14 +71,14 @@
     }
 
     section { padding: 70px 40px; }
+
     h2 { border-left: 5px solid #ff4d4d; padding-left: 10px; }
 
-    /* MENU GRID */
-    #menu-container {
+    /* FOOD GRID */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
       gap: 25px;
-      margin-top: 20px;
     }
 
     .card {
@@ -88,7 +87,11 @@
       overflow: hidden;
       backdrop-filter: blur(10px);
       transition: 0.3s;
-      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(255,0,0,0.3);
     }
 
     .card img {
@@ -99,39 +102,29 @@
 
     .card-content { padding: 15px; }
     .price { color: #ff4d4d; font-weight: bold; }
-    .rating { font-size: 14px; opacity: 0.7; margin-bottom: 10px; }
+    .rating { font-size: 14px; opacity: 0.7; }
 
-    .add-btn {
-      background: #ff4d4d;
-      border: none;
-      padding: 8px 15px;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    /* STICKY CART BAR */
-    #cart-bar {
+    /* STICKY ORDER BAR */
+    .order-bar {
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: #ff4d4d;
-      padding: 15px;
-      text-align: center;
-      font-weight: bold;
+      display: flex;
+      justify-content: space-around;
+      background: black;
+      padding: 10px;
       z-index: 1000;
     }
 
-    /* SEARCH */
-    #search {
-      width: 90%;
-      margin: 20px auto;
-      display: block;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
+    .order-btn {
+      padding: 12px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      color: white;
+      background: #ff4d4d;
     }
+
+    footer { text-align: center; padding: 20px; background: black; }
   </style>
 </head>
 
@@ -141,9 +134,8 @@
 <div class="navbar">
   <div><b>Smoky Curve 🔥</b></div>
   <div>
-    <a href="#">Home</a>
-    <a href="#menu">Menu</a>
-    <a href="#reviews">Reviews</a>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
   </div>
 </div>
 
@@ -151,40 +143,21 @@
 <div class="hero">
   <h1 data-aos="fade-up">Smoky Curve 🍽️</h1>
   <p data-aos="fade-up">Taste That You Will Never Forget</p>
-  <a href="#menu" class="btn" data-aos="zoom-in">Explore Menu</a>
+  <a href="menu.html" class="btn" data-aos="zoom-in">Explore Menu</a>
 </div>
 
-<!-- MENU -->
+<!-- POPULAR DISHES -->
 <section id="menu">
   <h2>🔥 Popular Dishes</h2>
-  <input type="text" id="search" placeholder="🔍 Search food...">
-  <div id="menu-container"></div>
+  <div class="grid" id="menu-container"></div>
 </section>
 
-<!-- REVIEWS -->
-<section id="reviews">
-  <h2>⭐ Customer Reviews</h2>
-  <p data-aos="fade-right">"Amazing food and fast service!"</p>
-  <p data-aos="fade-right">"Best shawarma in Chennai!"</p>
-  <p data-aos="fade-right">"Affordable and tasty 😍"</p>
-</section>
-
-<!-- CONTACT -->
-<section>
-  <h2>📍 Visit Us</h2>
-  <p>18, Paper Mills Road, Perambur</p>
-  <p>📞 6365267431</p>
-
-  <iframe 
-    src="https://maps.google.com/maps?q=perambur&t=&z=15&ie=UTF8&iwloc=&output=embed"
-    width="100%" height="250" style="border-radius:10px;">
-  </iframe>
-</section>
-
-<!-- CART BAR -->
-<div id="cart-bar">
+<!-- ORDER BAR -->
+<div class="order-bar">
   🛒 <span id="cart-count">0</span> items | ₹<span id="cart-total">0</span>
 </div>
+
+<footer>© 2026 Smoky Curve Restaurant</footer>
 
 <!-- AOS SCRIPT -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -192,57 +165,43 @@
   AOS.init();
 </script>
 
-<!-- SCRIPT -->
+<!-- SCRIPT: CART + DYNAMIC MENU -->
 <script>
-// Menu Data
 let cartCount = 0;
 let total = 0;
 
+// Menu items
 const menuItems = [
-  { name: "Chicken Shawarma", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Chicken_Shawarma.webp", price: 120, rating: "⭐ 4.5 (120 reviews)" },
-  { name: "Fried Rice", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Fried%20Rice.webp", price: 150, rating: "⭐ 4.6" },
-  { name: "Tandoori Chicken", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Tandoori%20Chicken.webp", price: 220, rating: "⭐ 4.8" }
+  {name: "Chicken Shawarma", price: 120, rating: "⭐ 4.5 (120 reviews)", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Chicken_Shawarma.webp"},
+  {name: "Fried Rice", price: 150, rating: "⭐ 4.6", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Fried%20Rice.webp"},
+  {name: "Tandoori Chicken", price: 220, rating: "⭐ 4.8", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Tandoori%20Chicken.webp"}
 ];
 
-// Add to cart
-function addToCart(name, price){
+// Populate menu dynamically
+const menuContainer = document.getElementById("menu-container");
+menuItems.forEach(item => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${item.img}">
+    <div class="card-content">
+      <h3>${item.name}</h3>
+      <p class="price">₹${item.price}</p>
+      <p class="rating">${item.rating}</p>
+      <button onclick="addToCart('${item.name}',${item.price})">Add to Cart</button>
+    </div>
+  `;
+  menuContainer.appendChild(card);
+});
+
+// Add to Cart
+function addToCart(name, price) {
   cartCount++;
   total += price;
   document.getElementById("cart-count").innerText = cartCount;
   document.getElementById("cart-total").innerText = total;
 }
-
-// Render Menu
-function renderMenu(){
-  const container = document.getElementById("menu-container");
-  container.innerHTML = "";
-  menuItems.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <img src="${item.img}">
-      <div class="card-content">
-        <h3>${item.name}</h3>
-        <p class="price">₹${item.price}</p>
-        <p class="rating">${item.rating}</p>
-        <button class="add-btn" onclick="addToCart('${item.name}',${item.price})">Add to Cart</button>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-}
-
-// Search
-document.getElementById("search").addEventListener("keyup", function(){
-  const val = this.value.toLowerCase();
-  document.querySelectorAll("#menu-container .card").forEach(card => {
-    const name = card.querySelector("h3").innerText.toLowerCase();
-    card.style.display = name.includes(val) ? "block" : "none";
-  });
-});
-
-// Initialize
-document.addEventListener("DOMContentLoaded", renderMenu);
 </script>
+
 </body>
 </html>
