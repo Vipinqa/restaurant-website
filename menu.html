@@ -5,15 +5,91 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
-    /* <-- Paste all the CSS here (from STEP 2) --> */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a0a;
+      color: white;
+    }
+
+    h2 {
+      padding-left: 20px;
+    }
+
+    /* SEARCH */
+    #search {
+      width: 90%;
+      margin: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+
+    /* MENU */
+    .menu-category {
+      margin: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.05);
+    }
+
+    .menu-title {
+      padding: 15px;
+      background: #ff4d4d;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .menu-items {
+      padding: 10px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .item h4 {
+      margin: 0;
+    }
+
+    .item p {
+      margin: 3px 0;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    button {
+      background: #ff4d4d;
+      border: none;
+      padding: 6px 12px;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* CART */
+    #cart-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #ff4d4d;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
   </style>
 </head>
+
 <body>
 
 <h2>🍽️ Our Menu</h2>
 <input type="text" id="search" placeholder="🔍 Search food...">
 
-<!-- Menu Categories -->
+<!-- SOUPS -->
 <div class="menu-category">
   <div class="menu-title">🥣 Soups</div>
   <div class="menu-items">
@@ -27,17 +103,110 @@
         <button onclick="addToCart('Clear Chicken Soup',229)">Add</button>
       </div>
     </div>
-    <!-- Add more items here -->
+    <div class="item">
+      <div>
+        <h4 class="food-name">Cream Of Mushroom</h4>
+        <p>Rich creamy soup</p>
+      </div>
+      <div>
+        ₹199 <br>
+        <button onclick="addToCart('Cream Of Mushroom',199)">Add</button>
+      </div>
+    </div>
+    <div class="item">
+      <div>
+        <h4 class="food-name">Hot & Sour Veg</h4>
+        <p>Spicy tangy soup</p>
+      </div>
+      <div>
+        ₹189 <br>
+        <button onclick="addToCart('Hot & Sour Veg',189)">Add</button>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Add other categories here -->
+<!-- STARTERS -->
+<div class="menu-category">
+  <div class="menu-title">🍗 Starters</div>
+  <div class="menu-items">
+    <div class="item">
+      <h4 class="food-name">Chicken 65</h4>
+      <div>₹359 <br><button onclick="addToCart('Chicken 65',359)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Paneer Tikka</h4>
+      <div>₹329 <br><button onclick="addToCart('Paneer Tikka',329)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Tandoori Fish</h4>
+      <div>₹489 <br><button onclick="addToCart('Tandoori Fish',489)">Add</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- RICE -->
+<div class="menu-category">
+  <div class="menu-title">🍚 Rice</div>
+  <div class="menu-items">
+    <div class="item">
+      <h4 class="food-name">Chicken Fried Rice</h4>
+      <div>₹279 <br><button onclick="addToCart('Chicken Fried Rice',279)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Veg Fried Rice</h4>
+      <div>₹199 <br><button onclick="addToCart('Veg Fried Rice',199)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Prawn Fried Rice</h4>
+      <div>₹289 <br><button onclick="addToCart('Prawn Fried Rice',289)">Add</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- NOODLES -->
+<div class="menu-category">
+  <div class="menu-title">🍜 Noodles</div>
+  <div class="menu-items">
+    <div class="item">
+      <h4 class="food-name">Chicken Noodles</h4>
+      <div>₹289 <br><button onclick="addToCart('Chicken Noodles',289)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Veg Noodles</h4>
+      <div>₹219 <br><button onclick="addToCart('Veg Noodles',219)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Prawn Noodles</h4>
+      <div>₹299 <br><button onclick="addToCart('Prawn Noodles',299)">Add</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- BIRYANI -->
+<div class="menu-category">
+  <div class="menu-title">🍛 Biryani</div>
+  <div class="menu-items">
+    <div class="item">
+      <h4 class="food-name">Chicken Biryani</h4>
+      <div>₹229 <br><button onclick="addToCart('Chicken Biryani',229)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Chicken 65 Biryani</h4>
+      <div>₹269 <br><button onclick="addToCart('Chicken 65 Biryani',269)">Add</button></div>
+    </div>
+    <div class="item">
+      <h4 class="food-name">Egg Biryani</h4>
+      <div>₹189 <br><button onclick="addToCart('Egg Biryani',189)">Add</button></div>
+    </div>
+  </div>
+</div>
 
 <!-- CART BAR -->
 <div id="cart-bar">
   🛒 <span id="cart-count">0</span> items | ₹<span id="cart-total">0</span>
 </div>
 
-<script src="script.js"></script> <!-- link your JS file -->
+<script src="script.js"></script> <!-- linked JS -->
 </body>
 </html>
