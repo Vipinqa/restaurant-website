@@ -52,8 +52,13 @@
       align-items: center;
     }
 
-    .hero h1 { font-size: 60px; }
-    .hero p { opacity: 0.8; }
+    .hero h1 {
+      font-size: 60px;
+    }
+
+    .hero p {
+      opacity: 0.8;
+    }
 
     .btn {
       margin-top: 20px;
@@ -70,9 +75,14 @@
       box-shadow: 0 0 20px red;
     }
 
-    section { padding: 70px 40px; }
+    section {
+      padding: 70px 40px;
+    }
 
-    h2 { border-left: 5px solid #ff4d4d; padding-left: 10px; }
+    h2 {
+      border-left: 5px solid #ff4d4d;
+      padding-left: 10px;
+    }
 
     /* FOOD GRID */
     .grid {
@@ -100,9 +110,19 @@
       object-fit: cover;
     }
 
-    .card-content { padding: 15px; }
-    .price { color: #ff4d4d; font-weight: bold; }
-    .rating { font-size: 14px; opacity: 0.7; }
+    .card-content {
+      padding: 15px;
+    }
+
+    .price {
+      color: #ff4d4d;
+      font-weight: bold;
+    }
+
+    .rating {
+      font-size: 14px;
+      opacity: 0.7;
+    }
 
     /* STICKY ORDER BAR */
     .order-bar {
@@ -113,7 +133,6 @@
       justify-content: space-around;
       background: black;
       padding: 10px;
-      z-index: 1000;
     }
 
     .order-btn {
@@ -124,7 +143,11 @@
       background: #ff4d4d;
     }
 
-    footer { text-align: center; padding: 20px; background: black; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: black;
+    }
   </style>
 </head>
 
@@ -134,8 +157,9 @@
 <div class="navbar">
   <div><b>Smoky Curve 🔥</b></div>
   <div>
-    <a href="index.html">Home</a>
-    <a href="menu.html">Menu</a>
+    <a href="#">Home</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
   </div>
 </div>
 
@@ -143,21 +167,49 @@
 <div class="hero">
   <h1 data-aos="fade-up">Smoky Curve 🍽️</h1>
   <p data-aos="fade-up">Taste That You Will Never Forget</p>
-  <a href="menu.html" class="btn" data-aos="zoom-in">Explore Menu</a>
+  <a href="#menu" class="btn" data-aos="zoom-in">Explore Menu</a>
 </div>
 
-<!-- POPULAR DISHES -->
+<!-- MENU -->
 <section id="menu">
   <h2>🔥 Popular Dishes</h2>
-  <div class="grid" id="menu-container"></div>
+
+  <div class="grid" id="menu-container">
+    <!-- JS will dynamically load menu items here -->
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <h2>⭐ Customer Reviews</h2>
+
+  <p data-aos="fade-right">"Amazing food and fast service!"</p>
+  <p data-aos="fade-right">"Best shawarma in Chennai!"</p>
+  <p data-aos="fade-right">"Affordable and tasty 😍"</p>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2>📍 Visit Us</h2>
+  <p>18, Paper Mills Road, Perambur</p>
+  <p>📞 6365267431</p>
+
+  <iframe 
+    src="https://maps.google.com/maps?q=perambur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    width="100%" height="250" style="border-radius:10px;">
+  </iframe>
 </section>
 
 <!-- ORDER BAR -->
 <div class="order-bar">
   🛒 <span id="cart-count">0</span> items | ₹<span id="cart-total">0</span>
+  <a href="tel:8838087588" class="order-btn">📞 Call Now</a>
+  <a href="https://wa.me/918838087588" class="order-btn">💬 WhatsApp</a>
 </div>
 
-<footer>© 2026 Smoky Curve Restaurant</footer>
+<footer>
+  © 2026 Smoky Curve Restaurant
+</footer>
 
 <!-- AOS SCRIPT -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -165,43 +217,7 @@
   AOS.init();
 </script>
 
-<!-- SCRIPT: CART + DYNAMIC MENU -->
-<script>
-let cartCount = 0;
-let total = 0;
-
-// Menu items
-const menuItems = [
-  {name: "Chicken Shawarma", price: 120, rating: "⭐ 4.5 (120 reviews)", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Chicken_Shawarma.webp"},
-  {name: "Fried Rice", price: 150, rating: "⭐ 4.6", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Fried%20Rice.webp"},
-  {name: "Tandoori Chicken", price: 220, rating: "⭐ 4.8", img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Tandoori%20Chicken.webp"}
-];
-
-// Populate menu dynamically
-const menuContainer = document.getElementById("menu-container");
-menuItems.forEach(item => {
-  const card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML = `
-    <img src="${item.img}">
-    <div class="card-content">
-      <h3>${item.name}</h3>
-      <p class="price">₹${item.price}</p>
-      <p class="rating">${item.rating}</p>
-      <button onclick="addToCart('${item.name}',${item.price})">Add to Cart</button>
-    </div>
-  `;
-  menuContainer.appendChild(card);
-});
-
-// Add to Cart
-function addToCart(name, price) {
-  cartCount++;
-  total += price;
-  document.getElementById("cart-count").innerText = cartCount;
-  document.getElementById("cart-total").innerText = total;
-}
-</script>
-
+<!-- LINK TO YOUR JS -->
+<script src="script.js"></script>
 </body>
 </html>
