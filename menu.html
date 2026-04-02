@@ -1,189 +1,266 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Smoky Curve - Menu</title>
+<section id="full-menu">
+  <h2>🍽️ Explore Our Menu</h2>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f0f0f;
-      color: white;
-    }
+  <!-- SOUPS -->
+  <div class="menu-category">
+    <div class="menu-title">🥣 Soups</div>
+    <div class="menu-items">
 
-    /* 🔝 NAVBAR */
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: rgba(0,0,0,0.9);
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-    }
+      <div class="item">
+        <div>
+          <h4>Clear Chicken Soup</h4>
+          <p>Light broth with chicken & vegetables</p>
+        </div>
+        <span>₹229</span>
+      </div>
 
-    .navbar a {
-      color: white;
-      text-decoration: none;
-      margin: 10px;
-      font-weight: 500;
-    }
+      <div class="item">
+        <div>
+          <h4>Cream Of Mushroom Soup</h4>
+          <p>Rich creamy mushroom blend</p>
+        </div>
+        <span>₹199</span>
+      </div>
 
-    .navbar a:hover {
-      color: #ff4d4d;
-    }
+      <div class="item">
+        <div>
+          <h4>Hot & Sour Veg Soup</h4>
+          <p>Spicy and tangy flavors</p>
+        </div>
+        <span>₹189</span>
+      </div>
 
-    /* 🍽️ HERO */
-    .hero {
-      height: 250px;
-      background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px black;
-    }
-
-    /* 📦 SECTION */
-    section {
-      padding: 30px;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      border-left: 5px solid #ff4d4d;
-      padding-left: 10px;
-    }
-
-    /* 🧾 MENU GRID */
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    /* 🍔 CARD */
-    .item {
-      background: #1a1a1a;
-      padding: 15px;
-      border-radius: 12px;
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
-
-    .item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 20px rgba(255,77,77,0.4);
-    }
-
-    .item img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      color: #ff4d4d;
-      font-weight: bold;
-    }
-
-    /* 🔘 BUTTON */
-    .btn {
-      display: inline-block;
-      margin: 30px auto;
-      padding: 12px 25px;
-      background: #ff4d4d;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      text-align: center;
-    }
-
-    .btn:hover {
-      background: #ff1a1a;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: black;
-    }
-
-  </style>
-</head>
-
-<body>
-
-<!-- 🔝 NAVBAR -->
-<div class="navbar">
-  <div><b>Smoky Curve</b></div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="#soups">Soups</a>
-    <a href="#starters">Starters</a>
-  </div>
-</div>
-
-<!-- 🍽️ HERO -->
-<div class="hero">
-  Delicious Food 🍽️
-</div>
-
-<!-- 🍲 SOUPS -->
-<section id="soups">
-  <h2>Soups</h2>
-  <div class="menu">
-
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1547592180-85f173990554">
-      <h3>Clear Chicken Soup</h3>
-      <p>Light and refreshing broth</p>
-      <span class="price">₹229</span>
     </div>
-
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
-      <h3>Hot & Sour Soup</h3>
-      <p>Spicy and tangy flavors</p>
-      <span class="price">₹229</span>
-    </div>
-
   </div>
+
+  <!-- INDIAN STARTERS -->
+  <div class="menu-category">
+    <div class="menu-title">🍗 Indian Starters</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Chicken 65</h4>
+        <span>₹359</span>
+      </div>
+
+      <div class="item">
+        <h4>Paneer Tikka</h4>
+        <span>₹329</span>
+      </div>
+
+      <div class="item">
+        <h4>Tandoori Fish</h4>
+        <span>₹489</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHINESE STARTERS -->
+  <div class="menu-category">
+    <div class="menu-title">🥡 Chinese Starters</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Chilli Chicken</h4>
+        <span>₹329</span>
+      </div>
+
+      <div class="item">
+        <h4>Chicken Lollipop</h4>
+        <span>₹369</span>
+      </div>
+
+      <div class="item">
+        <h4>Veg Momo</h4>
+        <span>₹199</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIGNATURE -->
+  <div class="menu-category">
+    <div class="menu-title">🔥 Signature Chicken</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Smoky Grilled Chicken</h4>
+        <span>₹219</span>
+      </div>
+
+      <div class="item">
+        <h4>Pepper Barbecue Chicken</h4>
+        <span>₹219</span>
+      </div>
+
+      <div class="item">
+        <h4>Tandoori Chicken</h4>
+        <span>₹219</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RICE -->
+  <div class="menu-category">
+    <div class="menu-title">🍚 Rice</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Chicken Fried Rice</h4>
+        <span>₹279</span>
+      </div>
+
+      <div class="item">
+        <h4>Veg Fried Rice</h4>
+        <span>₹199</span>
+      </div>
+
+      <div class="item">
+        <h4>Prawn Fried Rice</h4>
+        <span>₹289</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NOODLES -->
+  <div class="menu-category">
+    <div class="menu-title">🍜 Noodles</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Chicken Noodles</h4>
+        <span>₹289</span>
+      </div>
+
+      <div class="item">
+        <h4>Veg Noodles</h4>
+        <span>₹219</span>
+      </div>
+
+      <div class="item">
+        <h4>Prawn Noodles</h4>
+        <span>₹299</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BREAD -->
+  <div class="menu-category">
+    <div class="menu-title">🍞 Breads</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Butter Naan</h4>
+        <span>₹85</span>
+      </div>
+
+      <div class="item">
+        <h4>Garlic Naan</h4>
+        <span>₹95</span>
+      </div>
+
+      <div class="item">
+        <h4>Tandoori Roti</h4>
+        <span>₹75</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SHAWARMA -->
+  <div class="menu-category">
+    <div class="menu-title">🌯 Shawarma</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Regular Shawarma</h4>
+        <span>₹139</span>
+      </div>
+
+      <div class="item">
+        <h4>Peri Peri Shawarma</h4>
+        <span>₹209</span>
+      </div>
+
+      <div class="item">
+        <h4>Special Shawarma</h4>
+        <span>₹189</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BIRYANI -->
+  <div class="menu-category">
+    <div class="menu-title">🍛 Biryani</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Chicken Biryani</h4>
+        <span>₹229</span>
+      </div>
+
+      <div class="item">
+        <h4>Chicken 65 Biryani</h4>
+        <span>₹269</span>
+      </div>
+
+      <div class="item">
+        <h4>Egg Biryani</h4>
+        <span>₹189</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DRINKS -->
+  <div class="menu-category">
+    <div class="menu-title">🥤 Drinks</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Mojito</h4>
+        <span>₹169</span>
+      </div>
+
+      <div class="item">
+        <h4>Lemon Soda</h4>
+        <span>₹99</span>
+      </div>
+
+      <div class="item">
+        <h4>Pepsi</h4>
+        <span>₹20</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DESSERT -->
+  <div class="menu-category">
+    <div class="menu-title">🍰 Desserts</div>
+    <div class="menu-items">
+
+      <div class="item">
+        <h4>Brownie with Ice Cream</h4>
+        <span>₹219</span>
+      </div>
+
+      <div class="item">
+        <h4>Tiramisu Jar</h4>
+        <span>₹199</span>
+      </div>
+
+      <div class="item">
+        <h4>Ice Cream Scoop</h4>
+        <span>₹69</span>
+      </div>
+
+    </div>
+  </div>
+
 </section>
-
-<!-- 🍗 STARTERS -->
-<section id="starters">
-  <h2>Indian Starters</h2>
-  <div class="menu">
-
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1604908554028-5a6f7d75a6c2">
-      <h3>Chicken 65</h3>
-      <p>Spicy crispy chicken</p>
-      <span class="price">₹359</span>
-    </div>
-
-    <div class="item">
-      <img src="https://images.unsplash.com/photo-1604908177522-040bb3fdf8ef">
-      <h3>Paneer Tikka</h3>
-      <p>Grilled paneer cubes</p>
-      <span class="price">₹329</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- 🔽 BUTTON -->
-<div style="text-align:center;">
-  <a href="index.html" class="btn">⬅ Back to Home</a>
-</div>
-
-<!-- 🔻 FOOTER -->
-<footer>
-  © 2026 Smoky Curve Restaurant
-</footer>
-
-</body>
-</html>
