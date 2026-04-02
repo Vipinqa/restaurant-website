@@ -50,6 +50,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
     }
 
     .hero h1 {
@@ -97,9 +98,6 @@
       overflow: hidden;
       backdrop-filter: blur(10px);
       transition: 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
     .card:hover {
@@ -127,26 +125,37 @@
       opacity: 0.7;
     }
 
-    button.add-cart {
+    button {
       background: #ff4d4d;
       border: none;
-      padding: 8px 15px;
+      padding: 8px 12px;
       color: white;
       border-radius: 6px;
       cursor: pointer;
       margin-top: 10px;
     }
 
+    /* CART BAR */
+    #cart-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #ff4d4d;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      z-index: 999;
+    }
+
     /* STICKY ORDER BAR */
     .order-bar {
       position: fixed;
-      bottom: 0;
+      bottom: 60px; /* above cart bar */
       width: 100%;
       display: flex;
       justify-content: space-around;
       background: black;
       padding: 10px;
-      z-index: 999;
     }
 
     .order-btn {
@@ -157,31 +166,11 @@
       background: #ff4d4d;
     }
 
-    #cart-bar {
-      position: fixed;
-      bottom: 60px;
-      right: 20px;
-      background: #ff4d4d;
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
     footer {
       text-align: center;
       padding: 20px;
       background: black;
-    }
-
-    /* SEARCH */
-    #search {
-      width: 90%;
-      margin: 20px auto;
-      display: block;
-      padding: 15px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -205,9 +194,6 @@
   <a href="#menu" class="btn" data-aos="zoom-in">Explore Menu</a>
 </div>
 
-<!-- SEARCH -->
-<input type="text" id="search" placeholder="🔍 Search food...">
-
 <!-- MENU -->
 <section id="menu">
   <h2>🔥 Popular Dishes</h2>
@@ -215,32 +201,32 @@
   <div class="grid">
 
     <div class="card" data-aos="fade-up">
-      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Chicken_Shawarma.webp" alt="Chicken Shawarma">
+      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Chicken_Shawarma.webp">
       <div class="card-content">
         <h3>Chicken Shawarma</h3>
         <p class="price">₹120</p>
         <p class="rating">⭐ 4.5 (120 reviews)</p>
-        <button class="add-cart" onclick="addToCart('Chicken Shawarma',120)">Add to Cart</button>
+        <button onclick="addToCart('Chicken Shawarma',120)">❤️ Add to Cart</button>
       </div>
     </div>
 
     <div class="card" data-aos="fade-up">
-      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Fried%20Rice.webp" alt="Fried Rice">
+      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Fried%20Rice.webp">
       <div class="card-content">
         <h3>Fried Rice</h3>
         <p class="price">₹150</p>
         <p class="rating">⭐ 4.6</p>
-        <button class="add-cart" onclick="addToCart('Fried Rice',150)">Add to Cart</button>
+        <button onclick="addToCart('Fried Rice',150)">❤️ Add to Cart</button>
       </div>
     </div>
 
     <div class="card" data-aos="fade-up">
-      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Tandoori%20Chicken.webp" alt="Tandoori Chicken">
+      <img src="https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Tandoori%20Chicken.webp">
       <div class="card-content">
         <h3>Tandoori Chicken</h3>
         <p class="price">₹220</p>
         <p class="rating">⭐ 4.8</p>
-        <button class="add-cart" onclick="addToCart('Tandoori Chicken',220)">Add to Cart</button>
+        <button onclick="addToCart('Tandoori Chicken',220)">❤️ Add to Cart</button>
       </div>
     </div>
 
@@ -289,7 +275,7 @@
   AOS.init();
 </script>
 
-<!-- CART & SEARCH SCRIPT -->
+<!-- ADD TO CART SCRIPT -->
 <script>
 let cartCount = 0;
 let total = 0;
@@ -301,17 +287,7 @@ function addToCart(name, price) {
   document.getElementById("cart-count").innerText = cartCount;
   document.getElementById("cart-total").innerText = total;
 }
-
-/* SEARCH FUNCTION */
-document.getElementById("search").addEventListener("keyup", function() {
-  let value = this.value.toLowerCase();
-  let items = document.querySelectorAll(".card");
-
-  items.forEach(item => {
-    let name = item.querySelector("h3").innerText.toLowerCase();
-    item.style.display = name.includes(value) ? "block" : "none";
-  });
-});
 </script>
+
 </body>
 </html>
