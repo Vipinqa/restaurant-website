@@ -174,35 +174,8 @@
 <section id="menu">
   <h2>🔥 Popular Dishes</h2>
 
-  <div class="grid">
-
-    <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/unnamed (3).webp>
-      <div class="card-content">
-        <h3>Chicken Shawarma</h3>
-        <p class="price">₹120</p>
-        <p class="rating">⭐ 4.5 (120 reviews)</p>
-      </div>
-    </div>
-
-    <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/Fried Rice.webp">
-      <div class="card-content">
-        <h3>Fried Rice</h3>
-        <p class="price">₹150</p>
-        <p class="rating">⭐ 4.6</p>
-      </div>
-    </div>
-
-    <div class="card" data-aos="fade-up">
-      <img src="restaurant-website/smoky-curve-images/Tandoori Chicken.webp">
-      <div class="card-content">
-        <h3>Tandoori Chicken</h3>
-        <p class="price">₹220</p>
-        <p class="rating">⭐ 4.8</p>
-      </div>
-    </div>
-
+  <div class="grid" id="menu-container">
+    <!-- JS will dynamically load menu items here -->
   </div>
 </section>
 
@@ -229,6 +202,7 @@
 
 <!-- ORDER BAR -->
 <div class="order-bar">
+  🛒 <span id="cart-count">0</span> items | ₹<span id="cart-total">0</span>
   <a href="tel:8838087588" class="order-btn">📞 Call Now</a>
   <a href="https://wa.me/918838087588" class="order-btn">💬 WhatsApp</a>
 </div>
@@ -242,6 +216,8 @@
 <script>
   AOS.init();
 </script>
+
+<!-- LINK TO YOUR JS -->
 <script src="script.js"></script>
 </body>
 </html>
