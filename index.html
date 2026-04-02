@@ -11,7 +11,7 @@
       color: white;
     }
 
-    /* 🔝 NAVBAR */
+    /* NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -32,7 +32,7 @@
       color: #ff4d4d;
     }
 
-    /* 🍽️ HERO */
+    /* HERO */
     .hero {
       height: 350px;
       background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5') center/cover;
@@ -61,7 +61,7 @@
       border-radius: 25px;
     }
 
-    /* 📦 SECTION */
+    /* SECTION */
     section {
       padding: 40px;
     }
@@ -71,7 +71,7 @@
       padding-left: 10px;
     }
 
-    /* ⭐ CARDS */
+    /* GRID */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -90,7 +90,7 @@
       box-shadow: 0 5px 20px rgba(255,77,77,0.3);
     }
 
-    /* ⭐ REVIEWS */
+    /* REVIEWS */
     .review {
       background: #1e1e1e;
       padding: 15px;
@@ -103,12 +103,30 @@
       padding: 20px;
       background: black;
     }
+
+    /* WHATSAPP BUTTON */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      font-size: 24px;
+      padding: 15px;
+      border-radius: 50%;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .whatsapp:hover {
+      background: #1ebe5d;
+    }
   </style>
 </head>
 
 <body>
 
-<!-- 🔝 NAVBAR -->
+<!-- NAVBAR -->
 <div class="navbar">
   <div><b>Smoky Curve</b></div>
   <div>
@@ -118,14 +136,14 @@
   </div>
 </div>
 
-<!-- 🍽️ HERO -->
+<!-- HERO -->
 <div class="hero">
   <h1>Smoky Curve 🍽️</h1>
   <p>Indian • Chinese • Tandoori • Continental</p>
   <a href="menu.html" class="btn">View Menu</a>
 </div>
 
-<!-- 📖 ABOUT -->
+<!-- ABOUT -->
 <section>
   <h2>About Us</h2>
   <p>
@@ -134,7 +152,7 @@
   </p>
 </section>
 
-<!-- 🍔 MENU HIGHLIGHTS -->
+<!-- MENU HIGHLIGHTS -->
 <section>
   <h2>Menu Highlights</h2>
   <div class="grid">
@@ -145,7 +163,7 @@
   </div>
 </section>
 
-<!-- 📍 CONTACT -->
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact & Details</h2>
   <p>📍 18, Paper Mills Road, Perambur, Chennai</p>
@@ -153,9 +171,18 @@
   <p>⏰ Open till 1 AM</p>
   <p>💰 Price: ₹200–₹600 per person</p>
   <p>🍽️ Outdoor seating available</p>
+
+  <h3>Find Us on Map 📍</h3>
+
+  <iframe 
+    src="https://maps.google.com/maps?q=18,Paper Mills Road,Perambur,Chennai&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    width="100%" 
+    height="300" 
+    style="border:0; border-radius:10px;">
+  </iframe>
 </section>
 
-<!-- ⭐ REVIEWS -->
+<!-- REVIEWS -->
 <section id="reviews">
   <h2>Customer Reviews ⭐ 4.6</h2>
 
@@ -170,13 +197,17 @@
   <div class="review">
     "Nice place and very good food, staff behavior is great"
   </div>
-
 </section>
 
-<!-- 🔻 FOOTER -->
+<!-- FOOTER -->
 <footer>
   © 2026 Smoky Curve Restaurant
 </footer>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/918838087588?text=Hi%20Smoky%20Curve,%20I%20want%20to%20order%20food" target="_blank" class="whatsapp">
+  💬
+</a>
 
 </body>
 </html>
