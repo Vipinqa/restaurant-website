@@ -3,23 +3,29 @@
 let cartCount = 0;
 let total = 0;
 
-// Full menu array
+// Menu items with images
 const menuItems = [
-  { name: "Clear Chicken Soup", category: "Soups", desc: "Light chicken broth", price: 229 },
-  { name: "Cream Of Mushroom", category: "Soups", desc: "Rich creamy soup", price: 199 },
-  { name: "Hot & Sour Veg", category: "Soups", desc: "Spicy tangy soup", price: 189 },
-  { name: "Chicken 65", category: "Starters", desc: "", price: 359 },
-  { name: "Paneer Tikka", category: "Starters", desc: "", price: 329 },
-  { name: "Tandoori Fish", category: "Starters", desc: "", price: 489 },
-  { name: "Chicken Fried Rice", category: "Rice", desc: "", price: 279 },
-  { name: "Veg Fried Rice", category: "Rice", desc: "", price: 199 },
-  { name: "Prawn Fried Rice", category: "Rice", desc: "", price: 289 },
-  { name: "Chicken Noodles", category: "Noodles", desc: "", price: 289 },
-  { name: "Veg Noodles", category: "Noodles", desc: "", price: 219 },
-  { name: "Prawn Noodles", category: "Noodles", desc: "", price: 299 },
-  { name: "Chicken Biryani", category: "Biryani", desc: "", price: 229 },
-  { name: "Chicken 65 Biryani", category: "Biryani", desc: "", price: 269 },
-  { name: "Egg Biryani", category: "Biryani", desc: "", price: 189 },
+  {
+    name: "Chicken Shawarma",
+    category: "Popular Dishes",
+    desc: "Juicy grilled chicken wrapped in flatbread",
+    price: 120,
+    img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Chicken_Shawarma.webp"
+  },
+  {
+    name: "Fried Rice",
+    category: "Popular Dishes",
+    desc: "Delicious fried rice with vegetables and spices",
+    price: 150,
+    img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Fried%20Rice.webp"
+  },
+  {
+    name: "Tandoori Chicken",
+    category: "Popular Dishes",
+    desc: "Spicy and flavorful tandoori chicken",
+    price: 220,
+    img: "https://raw.githubusercontent.com/Vipinqa/restaurant-website/main/smoky-curve-images/Tandoori%20Chicken.webp"
+  }
 ];
 
 // Add to cart function
@@ -45,7 +51,7 @@ function renderMenu(containerId) {
 
     const titleDiv = document.createElement("div");
     titleDiv.className = "menu-title";
-    titleDiv.innerText = `🍽️ ${cat}`;
+    titleDiv.innerText = `🔥 ${cat}`;
     catDiv.appendChild(titleDiv);
 
     const itemsDiv = document.createElement("div");
@@ -61,8 +67,9 @@ function renderMenu(containerId) {
           <p>${item.desc}</p>
         </div>
         <div>
+          <img src="${item.img}" alt="${item.name}" style="width:100px;height:70px;object-fit:cover;border-radius:8px;"><br>
           ₹${item.price} <br>
-          <button onclick="addToCart('${item.name}',${item.price})">Add</button>
+          <button onclick="addToCart('${item.name}',${item.price})">Add to Cart</button>
         </div>
       `;
       itemsDiv.appendChild(itemDiv);
